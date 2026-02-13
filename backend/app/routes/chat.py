@@ -3,9 +3,10 @@
 import json
 import logging
 
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 from sse_starlette.sse import EventSourceResponse
 
+from app.auth import check_rate_limit, verify_api_key
 from app.models import ChatRequest
 from app.workflow.graph import workflow
 
@@ -81,7 +82,7 @@ async def _stream_response(request: ChatRequest):
         }
 
 
-@router.post("/chat")
+@router.post("/chat", dependencies=[Depends(verify_api_key), Depends(check_rate_limit)])
 async def chat(request: ChatRequest):
     """Chat endpoint that streams LangGraph workflow results via SSE."""
     return EventSourceResponse(_stream_response(request))

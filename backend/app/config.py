@@ -10,6 +10,8 @@ class Settings(BaseSettings):
     openai_model: str = "gpt-4o"
     database_path: str = _DEFAULT_DB
     cors_origins: list[str] = ["http://localhost:3000"]
+    api_secret_key: str = ""
+    rate_limit_rpm: int = 20
     debug: bool = False
 
     model_config = {"env_file": ".env", "env_file_encoding": "utf-8"}
