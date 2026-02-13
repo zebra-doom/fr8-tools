@@ -1,0 +1,36 @@
+{
+  "name": "fr8-tools-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^15.1",
+    "react": "^19.0",
+    "react-dom": "^19.0",
+    "react-markdown": "^9.0",
+    "recharts": "^2.15",
+    "react-leaflet": "^5.0",
+    "leaflet": "^1.9",
+    "lucide-react": "^0.474",
+    "class-variance-authority": "^0.7",
+    "clsx": "^2.1",
+    "tailwind-merge": "^3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/leaflet": "^1.9",
+    "typescript": "^5.7",
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "^15.1",
+    "@eslint/eslintrc": "^3"
+  }
+}

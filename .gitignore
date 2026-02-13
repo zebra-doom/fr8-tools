@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+*.egg
+.eggs/
+*.so
+
+# Node
+node_modules/
+.next/
+out/
+.vercel
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Database
+*.db
+*.sqlite3
+checkpoints.db
+
+# Large data files
+frontend/public/geojson/
+
+# Misc
+*.log
+.coverage
+htmlcov/
+.pytest_cache/
+.ruff_cache/
+
+# Legacy directories (pre-refactor)
+broqer-web/
+rag-gw/
+pipelines/
+static-server/
+db-utils/
+admin@*

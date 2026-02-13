@@ -1,0 +1,37 @@
+name: Backend CI/CD
+
+on:
+  push:
+    paths: ['backend/**']
+    branches: [main]
+  pull_request:
+    paths: ['backend/**']
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install -e ".[dev]"
+        working-directory: backend
+      - name: Lint with ruff
+        run: ruff check .
+        working-directory: backend
+      - name: Run tests
+        run: pytest
+        working-directory: backend
+
+  deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: railwayapp/railway-action@v1
+        with:
+          railway-token: ${{ secrets.RAILWAY_TOKEN }}
+          service: backend
